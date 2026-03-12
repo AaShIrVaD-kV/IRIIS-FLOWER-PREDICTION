@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Iris AI Predictor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<h1>Iris AI Predictor</h1>
+<p class="subtitle">Machine Learning Flower Classification</p>
+
+<form action="/predict" method="post">
+
+<div class="input-group">
+<input type="text" name="sepal_length" required>
+<label>Sepal Length</label>
+</div>
+
+<div class="input-group">
+<input type="text" name="sepal_width" required>
+<label>Sepal Width</label>
+</div>
+
+<div class="input-group">
+<input type="text" name="petal_length" required>
+<label>Petal Length</label>
+</div>
+
+<div class="input-group">
+<input type="text" name="petal_width" required>
+<label>Petal Width</label>
+</div>
+
+<button type="submit">Predict Flower</button>
+
+</form>
+
+{% if prediction_text %}
+
+<div class="result">
+Prediction: <span>{{ prediction_text }}</span>
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
